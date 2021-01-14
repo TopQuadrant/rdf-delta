@@ -1,5 +1,5 @@
-This branch is version `0.8.2-tq-1`, a patch on top of RDF Delta 0.8.2
-that uses Jena 3.15.0. To deploy to TQ's repository:
+This branch is version `0.8.2-tq-2`, a patch on top of RDF Delta 0.8.2
+that uses Jena 3.16.0. To deploy to TQ's repository:
 
 ```
 mvn clean deploy -DaltDeploymentRepository=tq-all::default::https://nexus.topquadrant.com/repository/tq-all
