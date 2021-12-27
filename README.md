@@ -1,8 +1,8 @@
-This branch is version `0.8.2-tq-3`, a patch on top of RDF Delta 0.8.2
-that uses Jena 3.16.0 and Log4j 2.16.0. To deploy to TQ's repository:
+This branch is version `0.8.2-tq-4`, a patch on top of RDF Delta 0.8.2
+that uses Jena 3.16.0 and Log4j 2.17.0. To deploy to TQ's repository:
 
 ```
-mvn clean deploy -DaltDeploymentRepository=tq-all::default::https://nexus.topquadrant.com/repository/tq-all
+mvn deploy
 ```
 
 ---
