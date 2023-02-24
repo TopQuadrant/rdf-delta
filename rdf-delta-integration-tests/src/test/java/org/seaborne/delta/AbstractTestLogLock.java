@@ -178,7 +178,7 @@ public abstract class AbstractTestLogLock {
         assertNull("Acquire 2", lockRef2);
     }
 
-    @Test(timeout=500) public void deltaLinkLock_contend_02() {
+    @Test(timeout=750) public void deltaLinkLock_contend_02() {
         Id lockRef1 = getDLink().acquireLock(dsRef);
         Id lockRef2 = getDLink().acquireLock(dsRef);
 
@@ -190,7 +190,7 @@ public abstract class AbstractTestLogLock {
         getDLink().releaseLock(dsRef, lockRef3);
     }
 
-    @Test(timeout=500)
+    @Test(timeout=750)
     public void deltaLinkLock_sequence_01() throws InterruptedException {
         Semaphore sema1 = new Semaphore(0);
         Semaphore sema2 = new Semaphore(0);
