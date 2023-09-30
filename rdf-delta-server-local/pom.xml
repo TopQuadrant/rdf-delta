@@ -27,7 +27,7 @@
   <parent>
     <groupId>org.seaborne.rdf-delta</groupId>
     <artifactId>rdf-delta</artifactId>
-    <version>1.1.2-tq-2</version>
+    <version>1.1.2-tq-3</version>
   </parent> 
 
   <properties>
@@ -38,7 +38,7 @@
     <dependency>
       <groupId>org.seaborne.rdf-delta</groupId>
       <artifactId>rdf-delta-base</artifactId>
-      <version>1.1.2-tq-2</version>
+      <version>1.1.2-tq-3</version>
     </dependency>
 
     <dependency>
@@ -62,6 +62,12 @@
       <groupId>org.slf4j</groupId>
       <artifactId>slf4j-jdk14</artifactId>
       <scope>test</scope>
+    </dependency>
+
+    <dependency>
+      <groupId>com.google.guava</groupId>
+      <artifactId>guava</artifactId>
+      <version>32.1.2-jre</version>
     </dependency>
 
   </dependencies>

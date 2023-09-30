@@ -24,7 +24,7 @@ import java.util.Iterator;
 import java.util.Map;
 
 import org.apache.jena.atlas.logging.FmtLog;
-import org.apache.jena.ext.com.google.common.collect.BiMap;
+import com.google.common.collect.BiMap;
 import org.seaborne.delta.Id;
 import org.seaborne.delta.Version;
 import org.apache.jena.atlas.io.IOX;

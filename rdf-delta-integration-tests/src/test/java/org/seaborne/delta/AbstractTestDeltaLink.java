@@ -19,15 +19,15 @@ package org.seaborne.delta;
 
 import static org.junit.Assert.*;
 
-import java.util.List ;
+import java.util.Iterator;
+import java.util.List;
+import java.util.Objects;
 import java.util.concurrent.atomic.AtomicInteger;
 
-import org.apache.jena.ext.com.google.common.base.Objects;
 import org.apache.jena.graph.*;
 import org.apache.jena.riot.RDFParser;
 import org.apache.jena.riot.system.StreamRDFLib ;
 import org.apache.jena.sparql.graph.GraphFactory;
-import org.apache.jena.sparql.util.graph.GraphListenerBase;
 import org.apache.jena.web.HttpSC;
 import org.junit.BeforeClass ;
 import org.junit.Test;
@@ -620,9 +620,20 @@ public abstract class AbstractTestDeltaLink {
         // Agrees with "patch1"
         Graph g = GraphFactory.createGraphMem();
         AtomicInteger counter = new AtomicInteger();
-        GraphListener gl = new GraphListenerBase() {
-            @Override protected void deleteEvent(Triple t) {}
-            @Override protected void addEvent(Triple t) { counter.incrementAndGet(); }
+        GraphListener gl = new GraphListener() {
+            @Override public void notifyAddArray(Graph g, Triple[] triples) { for (Triple triple : triples) { addEvent(triple); } }
+            @Override public void notifyAddGraph(Graph g, Graph added) {}
+            @Override public void notifyAddIterator(Graph g, Iterator<Triple> it) { for ( ; it.hasNext(); ) addEvent(it.next()); }
+            @Override public void notifyAddList(Graph g, List<Triple> triples) { notifyAddIterator(g, triples.iterator()); }
+            @Override public void notifyAddTriple(Graph g, Triple t) { addEvent(t); }
+            @Override public void notifyDeleteArray(Graph g, Triple[] triples) {}
+            @Override public void notifyDeleteGraph(Graph g, Graph removed) {}
+            @Override public void notifyDeleteIterator(Graph g, Iterator<Triple> it) {}
+            @Override public void notifyDeleteList (Graph g, List<Triple> triples) {}
+            @Override public void notifyDeleteTriple(Graph g, Triple t) {}
+            @Override public void notifyEvent(Graph source, Object value) {}
+            protected void deleteEvent(Triple t) {}
+            protected void addEvent(Triple t) { counter.incrementAndGet(); }
         };
         g.getEventManager().register(gl);
 
@@ -651,6 +662,6 @@ public abstract class AbstractTestDeltaLink {
         patch2.apply(c2);
         RDFChangesCollector.RDFPatchStored p2 = (RDFChangesCollector.RDFPatchStored)c2.getRDFPatch();
 
-        return Objects.equal(p1, p2);
+        return Objects.equals(p1, p2);
     }
 }

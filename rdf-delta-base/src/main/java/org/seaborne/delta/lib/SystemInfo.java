@@ -17,27 +17,19 @@
 
 package org.seaborne.delta.lib;
 
-import org.apache.jena.util.Metadata;
+import org.apache.jena.atlas.lib.Version;
 
 public class SystemInfo {
     /**
      * A relative resources path to the location of
      * <code>delta-properties.xml</code> file.
      */
-    static private String   metadataLocation             = "org/seaborne/delta/delta-properties.xml";
-
-    static private Metadata metadata                     = initMetadata();
-
-    private static Metadata initMetadata() {
-        Metadata m = new Metadata();
-        m.addMetadata(metadataLocation);
-        return m;
-    }
 
     /** Property path name base */
     private static final String PATH = "org.seaborne.delta";
 
     public static String systemName()   { return "RDF Delta"; }
-    public static String version()      { return metadata.get(PATH + ".version", "development"); }
-    public static String buildDate()    { return metadata.get(PATH + ".build.datetime", "unknown"); }
+    public static String version()      { return Version.versionForClass(SystemInfo.class).orElse("development"); }
+    @Deprecated
+    public static String buildDate()    { return ""; }
 }
