@@ -71,7 +71,7 @@
     <java.version>11</java.version>
 
     <ver.jena>4.8.0</ver.jena>
-    <ver.jetty>10.0.13</ver.jetty>
+    <ver.jetty>10.0.16</ver.jetty>
     <!-- Ensure we get a version compatible with Jena. -->
     <ver.commons-io>2.11.0</ver.commons-io>
     <ver.junit>4.13.2</ver.junit>
@@ -83,7 +83,6 @@
          NOT log4j-slf4j18-impl
          Using slf4j2:
          Requires log4j 2.19.0
-         Requires Jena 2.17.0
     -->
 
     <!--
@@ -94,7 +93,7 @@
     <ver.slf4j>1.7.36</ver.slf4j>
     <log4j.slf4j>log4j-slf4j</log4j.slf4j>
 
-    <ver.rocksdb>8.1.1.1</ver.rocksdb>
+    <ver.rocksdb>8.5.3</ver.rocksdb>
     <!-- Determines the Zookeeper version -->
     <ver.curator>5.5.0</ver.curator>
 
