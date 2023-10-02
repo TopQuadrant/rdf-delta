@@ -632,8 +632,7 @@ public abstract class AbstractTestDeltaLink {
             @Override public void notifyDeleteList (Graph g, List<Triple> triples) {}
             @Override public void notifyDeleteTriple(Graph g, Triple t) {}
             @Override public void notifyEvent(Graph source, Object value) {}
-            protected void deleteEvent(Triple t) {}
-            protected void addEvent(Triple t) { counter.incrementAndGet(); }
+            private void addEvent(Triple t) { counter.incrementAndGet(); }
         };
         g.getEventManager().register(gl);
 

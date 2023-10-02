@@ -50,8 +50,8 @@ public class dcmd {
 //        system.addMetadata("org/apache/jena/jena-properties.xml");
         // Need rewriting! Put back "name".
         // No reflection foo.
-        System.out.println(Version.versionForClass(RDF_Delta.class));
-        System.out.println(Version.versionForClass(Jena.class));
+        System.out.format("%s:  VERSION: %s\n", RDF_Delta.class.getSimpleName(), Version.versionForClass(RDF_Delta.class).orElse("<development>"));
+        System.out.format("%s:       VERSION: %s\n", Jena.class.getSimpleName(), Version.versionForClass(Jena.class).orElse("<development>"));
     }
 
     public static void main(String...args) {
