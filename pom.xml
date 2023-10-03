@@ -23,7 +23,7 @@
   <groupId>org.seaborne.rdf-delta</groupId>
   <artifactId>rdf-delta</artifactId>
   <packaging>pom</packaging>
-  <version>1.1.2-tq-2</version>
+  <version>1.1.2-tq-3</version>
 
   <name>RDF Delta</name>
   <url>https://afs.github.io/rdf-delta/</url>
@@ -70,7 +70,7 @@
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <java.version>11</java.version>
 
-    <ver.jena>4.8.0</ver.jena>
+    <ver.jena>4.9.0</ver.jena>
     <ver.jetty>10.0.16</ver.jetty>
     <!-- Ensure we get a version compatible with Jena. -->
     <ver.commons-io>2.11.0</ver.commons-io>
@@ -419,6 +419,9 @@
           <version>3.3.0</version>
           <configuration> 
             <archive>
+              <manifest>
+                <addDefaultImplementationEntries>true</addDefaultImplementationEntries>
+              </manifest>
               <manifestEntries>
                 <Automatic-Module-Name>${automatic.module.name}</Automatic-Module-Name>
               </manifestEntries>

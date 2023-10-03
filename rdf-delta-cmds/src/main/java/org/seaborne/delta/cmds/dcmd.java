@@ -22,6 +22,7 @@ import java.util.Arrays;
 import org.apache.jena.cmd.CmdException;
 import org.apache.jena.Jena;
 import org.apache.jena.atlas.io.IndentedWriter;
+import org.apache.jena.atlas.lib.Version;
 import org.apache.jena.fuseki.main.cmds.FusekiMainCmd;
 import org.seaborne.delta.Delta;
 import org.seaborne.delta.lib.SystemInfo;
@@ -49,10 +50,8 @@ public class dcmd {
 //        system.addMetadata("org/apache/jena/jena-properties.xml");
         // Need rewriting! Put back "name".
         // No reflection foo.
-        org.apache.jena.atlas.lib.Version version = new org.apache.jena.atlas.lib.Version();
-        version.addClass(RDF_Delta.class);
-        version.addClass(Jena.class) ;
-        version.print(IndentedWriter.stdout);
+        System.out.format("%s:  VERSION: %s\n", RDF_Delta.class.getSimpleName(), Version.versionForClass(RDF_Delta.class).orElse("<development>"));
+        System.out.format("%s:       VERSION: %s\n", Jena.class.getSimpleName(), Version.versionForClass(Jena.class).orElse("<development>"));
     }
 
     public static void main(String...args) {
