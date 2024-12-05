@@ -76,21 +76,21 @@
     <!-- Ensure we get a version compatible with Jena. -->
     <ver.commons-io>2.17.0</ver.commons-io>
     <ver.junit>4.13.2</ver.junit>
-    <ver.log4j2>2.24.1</ver.log4j2>
-    <ver.slf4j>2.0.7</ver.slf4j>
+    <ver.log4j2>2.24.2</ver.log4j2>
+    <ver.slf4j>2.0.16</ver.slf4j>
 
     <!-- Determines the Zookeeper version unless we explicit include zookeeper -->
     <!-- Curator 5.7.0 depends on zookeeper 3.9.1 -->
     <ver.curator>5.7.1</ver.curator>
     <ver.zookeeper>3.9.3</ver.zookeeper>
 
-    <ver.aws-s3>1.12.767</ver.aws-s3>
+    <ver.aws-s3>1.12.779</ver.aws-s3>
     <ver.rocksdb>9.7.3</ver.rocksdb>
 
     <ver.s3mock>0.2.6</ver.s3mock>
     <ver.awaitility>4.2.2</ver.awaitility>
 
-    <ver.plugin.cyclonedx>2.9.0</ver.plugin.cyclonedx>
+    <ver.plugin.cyclonedx>2.9.1</ver.plugin.cyclonedx>
 
     <!-- TEMP -->
     <ver.httpclient>4.5.14</ver.httpclient>
