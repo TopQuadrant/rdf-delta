@@ -25,8 +25,7 @@ import java.util.UUID ;
 import java.util.concurrent.ConcurrentHashMap;
 
 import jakarta.servlet.http.HttpServletRequest;
-
-import org.apache.jena.riot.web.HttpNames ;
+import org.apache.jena.http.HttpMethod;
 import org.seaborne.delta.DeltaBadRequestException ;
 import org.seaborne.delta.DeltaConst;
 import org.seaborne.delta.DeltaOps ;
@@ -213,9 +212,9 @@ public class Args {
         this.url = ServerLib.url(request);
         this.method = request.getMethod().toUpperCase(Locale.ROOT);
         switch(this.method) {
-            case HttpNames.METHOD_GET:
-            case HttpNames.METHOD_POST:
-            case HttpNames.METHOD_PATCH:
+            case HttpMethod.METHOD_GET:
+            case HttpMethod.METHOD_POST:
+            case HttpMethod.METHOD_PATCH:
                 break;
             default:
                 throw new IllegalArgumentException("Wrong method: "+method);

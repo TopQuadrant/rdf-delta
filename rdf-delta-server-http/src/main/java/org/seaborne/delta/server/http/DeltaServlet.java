@@ -24,11 +24,11 @@ import java.util.concurrent.ConcurrentHashMap;
 import jakarta.servlet.http.HttpServlet ;
 import jakarta.servlet.http.HttpServletRequest ;
 import jakarta.servlet.http.HttpServletResponse ;
-
 import org.apache.jena.atlas.json.JSON;
 import org.apache.jena.fuseki.server.RequestLog ;
 import org.apache.jena.fuseki.servlets.ActionErrorException ;
 import org.apache.jena.fuseki.servlets.ServletOps ;
+import org.apache.jena.http.HttpMethod;
 import org.apache.jena.riot.WebContent;
 import org.apache.jena.riot.web.HttpNames ;
 import org.apache.jena.web.HttpSC;
@@ -81,7 +81,7 @@ public abstract class DeltaServlet extends HttpServlet {
         try {
             // Add PATCH
             String method = req.getMethod() ;
-            if ( method.equals(HttpNames.METHOD_PATCH) ) {
+            if ( method.equals(HttpMethod.METHOD_PATCH) ) {
                 doPatch(req, resp);
             } else
                 super.service(req, resp);

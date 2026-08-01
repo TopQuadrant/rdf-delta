@@ -29,17 +29,18 @@ import java.io.InputStream;
 import org.apache.jena.atlas.web.ContentType;
 import org.apache.jena.fuseki.server.CounterName;
 import org.apache.jena.fuseki.servlets.*;
-import org.apache.jena.riot.RiotException;
-import org.apache.jena.riot.WebContent;
-import org.apache.jena.riot.web.HttpNames;
-import org.apache.jena.sparql.core.DatasetGraph;
-import org.apache.jena.web.HttpSC;
+import org.apache.jena.http.HttpMethod;
 import org.apache.jena.rdfpatch.PatchException;
 import org.apache.jena.rdfpatch.RDFChanges;
 import org.apache.jena.rdfpatch.changes.PatchTxnAbortException;
 import org.apache.jena.rdfpatch.changes.RDFChangesApply;
 import org.apache.jena.rdfpatch.changes.RDFChangesExternalTxn;
 import org.apache.jena.rdfpatch.text.RDFPatchReaderText ;
+import org.apache.jena.riot.RiotException;
+import org.apache.jena.riot.WebContent;
+import org.apache.jena.riot.web.HttpNames;
+import org.apache.jena.sparql.core.DatasetGraph;
+import org.apache.jena.web.HttpSC;
 
 /** A Fuseki service to receive and apply a patch. */
 public class PatchApplyService extends ActionREST {
@@ -57,8 +58,8 @@ public class PatchApplyService extends ActionREST {
     public void validate(HttpAction action) {
         String method = action.getRequest().getMethod();
         switch(method) {
-            case HttpNames.METHOD_POST:
-            case HttpNames.METHOD_PATCH:
+            case HttpMethod.METHOD_POST:
+            case HttpMethod.METHOD_PATCH:
                 break;
             default:
                 ServletOps.errorMethodNotAllowed(method+" : Patch must use POST or PATCH");

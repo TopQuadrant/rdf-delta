@@ -28,23 +28,23 @@ import java.io.OutputStream;
 import java.nio.file.Paths;
 
 import jakarta.servlet.http.HttpServlet;
-
 import org.apache.jena.atlas.web.ContentType;
 import org.apache.jena.fuseki.Fuseki;
 import org.apache.jena.fuseki.server.CounterName;
 import org.apache.jena.fuseki.servlets.*;
 import org.apache.jena.fuseki.system.ActionCategory;
 import org.apache.jena.graph.Node;
-import org.apache.jena.riot.RiotException;
-import org.apache.jena.riot.WebContent;
-import org.apache.jena.riot.out.NodeFmtLib;
-import org.apache.jena.riot.web.HttpNames;
-import org.apache.jena.web.HttpSC;
+import org.apache.jena.http.HttpMethod;
 import org.apache.jena.rdfpatch.RDFPatch;
 import org.apache.jena.rdfpatch.RDFPatchOps;
 import org.apache.jena.rdfpatch.filelog.FilePolicy;
 import org.apache.jena.rdfpatch.filelog.OutputMgr;
 import org.apache.jena.rdfpatch.filelog.rotate.ManagedOutput;
+import org.apache.jena.riot.RiotException;
+import org.apache.jena.riot.WebContent;
+import org.apache.jena.riot.out.NodeFmtLib;
+import org.apache.jena.riot.web.HttpNames;
+import org.apache.jena.web.HttpSC;
 
 /**
  * A patch receiver. This {@link HttpServlet servlet} writes patches to a log file
@@ -86,7 +86,7 @@ public class PatchWriteServlet extends ServletProcessor {
     protected void validate(HttpAction action) {
         String method = action.getRequest().getMethod();
         switch(method) {
-            case HttpNames.METHOD_POST:
+            case HttpMethod.METHOD_POST:
                 break;
             default:
                 ServletOps.errorMethodNotAllowed(method+" : Patch must use POST");

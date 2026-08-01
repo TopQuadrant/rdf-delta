@@ -21,8 +21,7 @@ import java.io.IOException;
 
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
-
-import org.apache.jena.riot.web.HttpNames ;
+import org.apache.jena.http.HttpMethod;
 import org.seaborne.delta.Delta ;
 import org.seaborne.delta.link.DeltaLink;
 import org.slf4j.Logger;
@@ -103,7 +102,7 @@ public class S_GetPostLog extends HttpOperationBase {
 
     private boolean isAppendOperation(Args args) {
         return isLogOperation(args)
-            && (args.method.equals(HttpNames.METHOD_POST) || args.method.equals(HttpNames.METHOD_PATCH))
+            && (args.method.equals(HttpMethod.METHOD_POST) || args.method.equals(HttpMethod.METHOD_PATCH))
             && (args.patchId == null && args.version == null);
     }
 }

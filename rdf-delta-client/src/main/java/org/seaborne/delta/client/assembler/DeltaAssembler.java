@@ -17,7 +17,7 @@
 
 package org.seaborne.delta.client.assembler;
 
-import static org.apache.jena.sparql.util.graph.GraphUtils.exactlyOneProperty;
+import static org.apache.jena.sparql.util.graph.GraphUtils.checkExactlyOneProperty;
 import static org.apache.jena.sparql.util.graph.GraphUtils.getAsStringValue;
 import static org.seaborne.delta.client.assembler.VocabDelta.*;
 
@@ -73,7 +73,7 @@ public class DeltaAssembler extends AssemblerBase implements Assembler {
 
         // Name of the patch log.
         // delta:patchlog
-        if ( ! exactlyOneProperty(root, pDeltaPatchLog) )
+        if ( ! checkExactlyOneProperty(root, pDeltaPatchLog) )
             throw new AssemblerException(root, "No patch log name") ;
         String dsName = getAsStringValue(root, pDeltaPatchLog);
 
@@ -115,7 +115,7 @@ public class DeltaAssembler extends AssemblerBase implements Assembler {
         if ( storage.isEphemeral() )
             zoneLocation = Location.mem();
         else {
-            if ( !exactlyOneProperty(root, pDeltaZone) )
+            if ( !checkExactlyOneProperty(root, pDeltaZone) )
                 throw new AssemblerException(root, "No location for state manangement (zone)");
             String zoneLocationStr = getAsStringValue(root, pDeltaZone);
             zoneLocation = Location.create(zoneLocationStr);
