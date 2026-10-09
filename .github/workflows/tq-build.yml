@@ -25,5 +25,5 @@ jobs:
       - name: Build with Maven
         run: mvn -B -s .github/maven-settings.xml -Dmaven.javadoc.skip=true install
         env:
-          TB_NEXUS_USER: dependabot-tbs-readonly
+          TB_NEXUS_USER: ${{ vars.NEXUS_TBS_READONLY_USER }}
           TB_NEXUS_PASSWORD: ${{ secrets.NEXUS_TBS_READONLY_PASSWORD }}
